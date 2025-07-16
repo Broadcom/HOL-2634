@@ -1,24 +1,20 @@
-THIS IS AN EXAMPLE. REPLACE THIS WITH YOUR OWN README.txt using the pattern below.
-
-This is customer facing so please make it look professional. Thanks.
-
-This file can be updated and will be copied to the console desktop at startup.
-
-NOTE: this file is public so NEVER include passwords.
-
 * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
-*                       HOL-26XX Title of Your Lab                              *
+*                 HOL-2634 vSAN 9 What's New and Advanced Topics                *
 * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 
-Primary benefits of your lab.
+Lab Captains: Cristian Lamson, Texas, USA
+              Peter Kieren, British Columbia, Canada
+              Jim Lafollette, Massachusetts, USA (Lab Principal)
 
-More detail about your lab: Products included.
+Welcome to the HOL-2634 Lab: vSAN 9 What's New and Advanced Topics
+Based on a vSphere/vSAN 9 Stretched Cluster and Multi-Site Architecture, this lab will guide you through the vSAN Architecture, Operations and features of vSAN 9.
 
-Additional notes and "interesting" facts about your lab. (pre-release code, simulated data, etc.)
+This lab is based on the RTM code of vSphere 9 and vSAN 9 in June 2025.
 
 Please use the VMware Lab Platform "Send Text" control and copy/paste from Lab Manual
 
-Please record account names for this lab. All acccounts use the standard Hands-on Labs password.
+vCenter Accounts:
+administrator@vsphere.local
 
 === Module 1 ===
 
@@ -32,5 +28,3 @@ For the vSphere Client, use:
 User name: administrator@vsphere.local
 
 === Module 2 ===
-
-big long command line that nobody wants to type
