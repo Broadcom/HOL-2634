@@ -195,6 +195,7 @@ if not lsf.labcheck:
 #        
 # Insert your code here using the file in your vPod_repo
 #
+lsf.write_output('Running ESA Cluster Disk Mounting.', logfile=lsf.logfile)
 import paramiko
 import os
 
@@ -224,7 +225,7 @@ def run_command(host, disks):
 # Run the command on each host and disk
 for host, disks in hosts_and_disks.items():
     run_command(host,disks)
-
+lsf.write_output('Finished ESA Cluster Disk Mounting.', logfile=lsf.logfile)
 # fail like this
 #now = datetime.datetime.now()
 #delta = now - lsf.start_time
