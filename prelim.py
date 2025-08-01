@@ -195,36 +195,38 @@ if not lsf.labcheck:
 #        
 # Insert your code here using the file in your vPod_repo
 #
-lsf.write_output('Running ESA Cluster Disk Mounting.', logfile=lsf.logfile)
-import paramiko
-import os
-
+#lsf.write_output('Running ESA Cluster Disk Mounting.', logfile=lsf.logfile)
 #Disk Mount for ESA Cluster in Site A to fix intermittent issue
 #Define Hosts and Corresponding Disks
-hosts_and_disks = {
-        "esx-05a":["eui.a63865b50c85b150000c296ecc656d2f", "eui.37fe60a968cc157e000c2964fd6ba0f5"],
-        "esx-06a":["eui.959679c9c855aad3000c296d1ae450fb", "eui.1ee5b02db8ade84e000c29614ad30e86"],
-        "esx-07a":["eui.f67a23a9cc12a148000c2960ffd7e624", "eui.efafe7a1237249df000c2967c7209d37"],
-        "esx-08a":["eui.95586cbfc3298f86000c296a08f70edd", "eui.cf2c42ddce42e7e8000c2966c2838713"]
-}
+#hosts_and_disks = {
+#        "esx-05a":["eui.a63865b50c85b150000c296ecc656d2f", "eui.37fe60a968cc157e000c2964fd6ba0f5"],
+#       "esx-06a":["eui.959679c9c855aad3000c296d1ae450fb", "eui.1ee5b02db8ade84e000c29614ad30e86"],
+#        "esx-07a":["eui.f67a23a9cc12a148000c2960ffd7e624", "eui.efafe7a1237249df000c2967c7209d37"],
+#        "esx-08a":["eui.95586cbfc3298f86000c296a08f70edd", "eui.cf2c42ddce42e7e8000c2966c2838713"]
+#}
 
 #Define Command to run
-command = "/bin/esxcli vsan storagepool mount --disk {diskName}"
+#command = "/bin/esxcli vsan storagepool mount --disk {diskName}"
 
 # Define a function to connecto to each hose and run the command on each disk
-def run_command(host, disks):
-    ssh = paramiko.SSHClient()
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(host)
-
-    for disk in disks:
-        stdin, stdout, stderr = ssh.exec_command(command.replace("{diskName}", disk))
-        output = stdout.read().decode("utf-8")
-        print(f"{host}: {disk} -> {output}")
-    ssh.close ()
+#def run_command(host, disks):
+#    ssh = lsf.ssh
+#    for disk in disks:
+#        stdin, stdout, stderr = ssh.exec_command(command.replace("{diskName}", disk))
+#        output = stdout.read().decode("utf-8")
+#        print(f"{host}: {disk} -> {output}")
+#    ssh.close ()
 # Run the command on each host and disk
-for host, disks in hosts_and_disks.items():
-    run_command(host,disks)
+#for host, disks in hosts_and_disks.items():
+#    run_command(host,disks)
+lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.a63865b50c85b150000c296ecc656d2f', root@esx-05a, lsf.password)
+lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.37fe60a968cc157e000c2964fd6ba0f5', root@esx-05a, lsf.password)
+lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.959679c9c855aad3000c296d1ae450fb', root@esx-06a, lsf.password)
+lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.1ee5b02db8ade84e000c29614ad30e86', root@esx-06a, lsf.password)
+lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.f67a23a9cc12a148000c2960ffd7e624', root@esx-07a, lsf.password)
+lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.efafe7a1237249df000c2967c7209d37', root@esx-07a, lsf.password)
+lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.95586cbfc3298f86000c296a08f70edd', root@esx-08a, lsf.password)
+lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.cf2c42ddce42e7e8000c2966c2838713', root@esx-08a, lsf.password)
 lsf.write_output('Finished ESA Cluster Disk Mounting.', logfile=lsf.logfile)
 # fail like this
 #now = datetime.datetime.now()
