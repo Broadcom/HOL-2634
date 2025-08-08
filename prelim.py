@@ -197,10 +197,10 @@ if not lsf.labcheck:
 #
 lsf.write_output('Running ESA Cluster Disk Mounting.', logfile=lsf.logfile)
 lsf.write_output('Copying shell script to ESX Hosts.', logfile=lsf.logfile)
-lsf.scp('/vpodrepo/2026-labs/2634/2634_mount_drives.sh', 'root@esx-05a:/scratch/2634_mount_drives.sh', "VMware123!VMware123!")
-lsf.scp('/vpodrepo/2026-labs/2634/2634_mount_drives.sh', 'root@esx-06a:/scratch/2634_mount_drives.sh', "VMware123!VMware123!")
-lsf.scp('/vpodrepo/2026-labs/2634/2634_mount_drives.sh', 'root@esx-07a:/scratch/2634_mount_drives.sh', "VMware123!VMware123!")
-lsf.scp('/vpodrepo/2026-labs/2634/2634_mount_drives.sh', 'root@esx-08a:/scratch/2634_mount_drives.sh', "VMware123!VMware123!")
+lsf.scp('/vpodrepo/2026-labs/2634/2634_mount_drives.sh', 'root@esx-05a:/scratch/2634_mount_drives.sh', lsf.password)
+lsf.scp('/vpodrepo/2026-labs/2634/2634_mount_drives.sh', 'root@esx-06a:/scratch/2634_mount_drives.sh', lsf.password)
+lsf.scp('/vpodrepo/2026-labs/2634/2634_mount_drives.sh', 'root@esx-07a:/scratch/2634_mount_drives.sh', lsf.password)
+lsf.scp('/vpodrepo/2026-labs/2634/2634_mount_drives.sh', 'root@esx-08a:/scratch/2634_mount_drives.sh', lsf.password)
 lsf.write_output('Executing shell script to fix Disk mounts on ESX Hosts.', logfile=lsf.logfile)
 #Disk Mount for ESA Cluster in Site A to fix intermittent issue
 #lsf.ssh('/bin/esxcli vsan storagepool mount --disk eui.f67a23a9cc12a148000c2960ffd7e624', 'root@esx-07a.site-a.vcf.lab', lsf.password)
